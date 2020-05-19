@@ -1,0 +1,27 @@
+﻿<#@ template language="C#" debug="true" #>
+<#
+    const int count = 1000;
+#>
+using System;
+using DictionaryOfTypes.Clients;
+
+namespace DictionaryOfTypes.Benchmarking
+{
+    public static class BenchmarkCallsCreator
+    {
+        public static Action[] CreateInvocations(IClientsAbstractFactory abstractFactory)
+        {
+            return new Action[]
+            {
+<#
+    for(var current = 0; current < count; current++)
+    {
+#>
+                () => abstractFactory.AllowedFactoryOf<IChatRoom<#=current#>Client>(),
+<#
+    }
+#>
+            };
+        }
+    }
+}

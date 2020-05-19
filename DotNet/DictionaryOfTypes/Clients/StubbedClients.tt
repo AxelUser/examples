@@ -1,0 +1,46 @@
+﻿<#@ template language="C#" #>
+<#const int typesCount = 1000; #>
+using System;
+using System.Threading.Tasks;
+
+namespace DictionaryOfTypes.Clients
+{
+    [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
+    public sealed class ChatRoomClientAttribute : Attribute
+    {
+    }
+
+<#
+  for (var i = 0; i < typesCount; i++)
+  {
+      var currentRoomPrefix = $"ChatRoom{i}";
+      #>
+    public class <#=currentRoomPrefix#>Message
+    {
+        public Guid Id { get; }
+        
+        public string? Text { get; }
+        
+        public Guid To { get; }
+    }
+    
+    public interface I<#=currentRoomPrefix#>Client
+    {
+        Task SendAsync(<#=currentRoomPrefix#>Message message);
+    }
+
+    [ChatRoomClient]
+    public class <#=currentRoomPrefix#>Client: I<#=currentRoomPrefix#>Client
+    {
+        private Guid _sender;
+
+        public <#=currentRoomPrefix#>Client(Guid sender)
+        {
+            _sender = sender;
+        }
+        
+        public Task SendAsync(<#=currentRoomPrefix#>Message message) => Task.CompletedTask;
+    }
+
+<#}#>
+}

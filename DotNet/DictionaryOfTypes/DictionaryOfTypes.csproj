@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Update="Clients\StubbedClients.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>StubbedClients.cs</LastGenOutput>
+      </None>
+      <None Update="Benchmarking\BenchmarkCallsCreator.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>BenchmarkCallsCreator.cs</LastGenOutput>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Clients\StubbedClients.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>StubbedClients.tt</DependentUpon>
+      </Compile>
+      <Compile Update="Benchmarking\BenchmarkCallsCreator.cs">
+        <DependentUpon>BenchmarkCallsCreator.tt</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="BenchmarkDotNet" Version="0.12.1" />
+    </ItemGroup>
+
+</Project>
