@@ -12,9 +12,9 @@ namespace DictionaryOfTypes.Benchmarking
     [DisassemblyDiagnoser]
     public class ChatFactoriesBenchmark
     {
-        private Action[] _simpleFactoryRunActions;
-        private Action[] _compiledGenericsFactoryRunActions;
-        private Action[] _cachedFactoryRunActions;
+        private Action[] _simpleFactoryRunActions = null!;
+        private Action[] _compiledGenericsFactoryRunActions = null!;
+        private Action[] _cachedFactoryRunActions = null!;
 
         [Params(100, 1000, 100000)]
         public int Accesses { get; set; }
