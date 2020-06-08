@@ -9,7 +9,7 @@ using DictionaryOfTypes.SimpleDictionary;
 
 namespace DictionaryOfTypes.Benchmarking
 {
-    [DisassemblyDiagnoser]
+    [MemoryDiagnoser]
     public class ChatFactoriesBenchmark
     {
         private Action[] _simpleFactoryRunActions = null!;
