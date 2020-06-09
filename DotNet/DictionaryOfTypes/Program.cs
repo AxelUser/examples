@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DictionaryOfTypes
+﻿namespace DictionaryOfTypes
 {
     class Program
     {

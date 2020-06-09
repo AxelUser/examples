@@ -19,6 +19,16 @@ namespace DictionaryOfTypes.GenericsTrick
         {
             DiscoveredAllowedClientTypes = ClientTypesProvider.GetAllTypes(Assembly.GetExecutingAssembly())
                 .ToDictionary(tuple => tuple.@interface, tuple => tuple.implementation);
+
+            var factory = typeof(CachedFactory<>);
+            
+            foreach (var @interface in DiscoveredAllowedClientTypes.Keys)
+            {
+
+                var genericFactory = factory.MakeGenericType(@interface);
+                var instanceProperty = genericFactory.GetField("Instance");
+                instanceProperty!.GetValue(null);
+            }
         }
     }
 }
