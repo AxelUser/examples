@@ -1,6 +1,6 @@
 ﻿<#@ template language="C#" debug="true" #>
 <#
-    const int count = 1000;
+    const int count = 20;
 #>
 using System;
 using DictionaryOfTypes.Clients;

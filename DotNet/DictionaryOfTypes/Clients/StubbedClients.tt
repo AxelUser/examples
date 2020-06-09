@@ -1,5 +1,5 @@
 ﻿<#@ template language="C#" #>
-<#const int typesCount = 1000; #>
+<#const int typesCount = 20; #>
 using System;
 using System.Threading.Tasks;
 
