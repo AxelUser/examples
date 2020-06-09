@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using DictionaryOfTypes.Clients;
 
 namespace DictionaryOfTypes.CacheFactoriesInDictionary
@@ -22,7 +23,7 @@ namespace DictionaryOfTypes.CacheFactoriesInDictionary
             if(!CachedClientFactories.TryGetValue(typeof(T), out var factory))
                 throw new Exception($"Client type '{typeof(T)}' isn't supported");
 
-            return (IClientFactory<T>) factory;
+            return Unsafe.As<IClientFactory<T>>(factory);
         }
 
         private static object CreateFactory(Type clientType)

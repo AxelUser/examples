@@ -16,7 +16,7 @@ namespace DictionaryOfTypes.Benchmarking
         private Action[] _compiledGenericsFactoryRunActions = null!;
         private Action[] _cachedFactoryRunActions = null!;
 
-        [Params(100, 1000, 100000)]
+        [Params(100, 1000, 10000000)]
         public int Accesses { get; set; }
 
         [GlobalSetup]
