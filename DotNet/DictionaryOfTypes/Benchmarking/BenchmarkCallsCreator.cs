@@ -5,30 +5,30 @@ namespace DictionaryOfTypes.Benchmarking
 {
     public static class BenchmarkCallsCreator
     {
-        public static Action[] CreateInvocations(IClientsAbstractFactory abstractFactory)
+        public static Action[] CreateInvocations(IClientsFactoryProvider factoryProvider)
         {
             return new Action[]
             {
-                () => abstractFactory.GetClientFactory<IResource0Client>(),
-                () => abstractFactory.GetClientFactory<IResource1Client>(),
-                () => abstractFactory.GetClientFactory<IResource2Client>(),
-                () => abstractFactory.GetClientFactory<IResource3Client>(),
-                () => abstractFactory.GetClientFactory<IResource4Client>(),
-                () => abstractFactory.GetClientFactory<IResource5Client>(),
-                () => abstractFactory.GetClientFactory<IResource6Client>(),
-                () => abstractFactory.GetClientFactory<IResource7Client>(),
-                () => abstractFactory.GetClientFactory<IResource8Client>(),
-                () => abstractFactory.GetClientFactory<IResource9Client>(),
-                () => abstractFactory.GetClientFactory<IResource10Client>(),
-                () => abstractFactory.GetClientFactory<IResource11Client>(),
-                () => abstractFactory.GetClientFactory<IResource12Client>(),
-                () => abstractFactory.GetClientFactory<IResource13Client>(),
-                () => abstractFactory.GetClientFactory<IResource14Client>(),
-                () => abstractFactory.GetClientFactory<IResource15Client>(),
-                () => abstractFactory.GetClientFactory<IResource16Client>(),
-                () => abstractFactory.GetClientFactory<IResource17Client>(),
-                () => abstractFactory.GetClientFactory<IResource18Client>(),
-                () => abstractFactory.GetClientFactory<IResource19Client>(),
+                () => factoryProvider.GetClientFactory<IResource0Client>(),
+                () => factoryProvider.GetClientFactory<IResource1Client>(),
+                () => factoryProvider.GetClientFactory<IResource2Client>(),
+                () => factoryProvider.GetClientFactory<IResource3Client>(),
+                () => factoryProvider.GetClientFactory<IResource4Client>(),
+                () => factoryProvider.GetClientFactory<IResource5Client>(),
+                () => factoryProvider.GetClientFactory<IResource6Client>(),
+                () => factoryProvider.GetClientFactory<IResource7Client>(),
+                () => factoryProvider.GetClientFactory<IResource8Client>(),
+                () => factoryProvider.GetClientFactory<IResource9Client>(),
+                () => factoryProvider.GetClientFactory<IResource10Client>(),
+                () => factoryProvider.GetClientFactory<IResource11Client>(),
+                () => factoryProvider.GetClientFactory<IResource12Client>(),
+                () => factoryProvider.GetClientFactory<IResource13Client>(),
+                () => factoryProvider.GetClientFactory<IResource14Client>(),
+                () => factoryProvider.GetClientFactory<IResource15Client>(),
+                () => factoryProvider.GetClientFactory<IResource16Client>(),
+                () => factoryProvider.GetClientFactory<IResource17Client>(),
+                () => factoryProvider.GetClientFactory<IResource18Client>(),
+                () => factoryProvider.GetClientFactory<IResource19Client>(),
             };
         }
     }

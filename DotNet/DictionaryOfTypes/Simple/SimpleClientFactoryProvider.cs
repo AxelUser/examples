@@ -6,11 +6,11 @@ using DictionaryOfTypes.Clients;
 
 namespace DictionaryOfTypes.Simple
 {
-    public class SimpleClientFactory: IClientsAbstractFactory
+    public class SimpleClientFactoryProvider: IClientsFactoryProvider
     {
         private static readonly Dictionary<Type, Type> DiscoveredAllowedClientTypes;
         
-        static SimpleClientFactory()
+        static SimpleClientFactoryProvider()
         {
             DiscoveredAllowedClientTypes = ClientTypesProvider.GetAllTypes(Assembly.GetExecutingAssembly())
                 .ToDictionary(tuple => tuple.@interface, tuple => tuple.implementation);

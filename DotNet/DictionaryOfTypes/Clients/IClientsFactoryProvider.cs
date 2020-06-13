@@ -1,6 +1,6 @@
 ﻿namespace DictionaryOfTypes.Clients
 {
-    public interface IClientsAbstractFactory
+    public interface IClientsFactoryProvider
     {
         IClientFactory<T> GetClientFactory<T>() where T : class;
     }

@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Benchmarking.ChatFactoriesBenchmark.Run();
+            Benchmarking.ClientFactoryProvidersBenchmark.Run();
         }
     }
 }

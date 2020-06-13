@@ -6,7 +6,7 @@ using DictionaryOfTypes.Clients;
 
 namespace DictionaryOfTypes.GenericsCache
 {
-    public partial class GenericsClientsAbstractFactory : IClientsAbstractFactory
+    public partial class GenericClientFactoryProvider : IClientsFactoryProvider
     {
         private static readonly Dictionary<Type, Type> DiscoveredAllowedClientTypes;
 
@@ -15,7 +15,7 @@ namespace DictionaryOfTypes.GenericsCache
             return CachedFactory<T>.Instance ?? throw new Exception($"Client type '{typeof(T)}' isn't supported");
         }
         
-        static GenericsClientsAbstractFactory()
+        static GenericClientFactoryProvider()
         {
             DiscoveredAllowedClientTypes = ClientTypesProvider.GetAllTypes(Assembly.GetExecutingAssembly())
                 .ToDictionary(tuple => tuple.@interface, tuple => tuple.implementation);

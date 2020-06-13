@@ -10,7 +10,7 @@ using DictionaryOfTypes.Simple;
 namespace DictionaryOfTypes.Benchmarking
 {
     [MemoryDiagnoser]
-    public class ChatFactoriesBenchmark
+    public class ClientFactoryProvidersBenchmark
     {
         private Action[] _simpleFactoryRunActions = null!;
         private Action[] _compiledGenericsFactoryRunActions = null!;
@@ -22,9 +22,9 @@ namespace DictionaryOfTypes.Benchmarking
         [GlobalSetup]
         public void SetUp()
         {
-            _simpleFactoryRunActions = BenchmarkCallsCreator.CreateInvocations(new SimpleClientFactory());
-            _cachedFactoryRunActions = BenchmarkCallsCreator.CreateInvocations(new CachedSimpleAbstractFactory());
-            _compiledGenericsFactoryRunActions = BenchmarkCallsCreator.CreateInvocations(new GenericsClientsAbstractFactory());
+            _simpleFactoryRunActions = BenchmarkCallsCreator.CreateInvocations(new SimpleClientFactoryProvider());
+            _cachedFactoryRunActions = BenchmarkCallsCreator.CreateInvocations(new CachedSimpleFactoryProvider());
+            _compiledGenericsFactoryRunActions = BenchmarkCallsCreator.CreateInvocations(new GenericClientFactoryProvider());
         }
 
         [Benchmark(Baseline = true)]
@@ -57,7 +57,7 @@ namespace DictionaryOfTypes.Benchmarking
         
         public static void Run()
         {
-            BenchmarkRunner.Run<ChatFactoriesBenchmark>();
+            BenchmarkRunner.Run<ClientFactoryProvidersBenchmark>();
         }
     }
 }

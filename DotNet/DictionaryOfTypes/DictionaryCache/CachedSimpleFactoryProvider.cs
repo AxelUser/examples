@@ -7,12 +7,12 @@ using DictionaryOfTypes.Clients;
 
 namespace DictionaryOfTypes.DictionaryCache
 {
-    public class CachedSimpleAbstractFactory: IClientsAbstractFactory
+    public class CachedSimpleFactoryProvider: IClientsFactoryProvider
     {
         private static readonly Type FactoryType = typeof(ClientFactory<>);
         private static readonly Dictionary<Type, object> CachedClientFactories;
         
-        static CachedSimpleAbstractFactory()
+        static CachedSimpleFactoryProvider()
         {
             CachedClientFactories = ClientTypesProvider.GetAllTypes(Assembly.GetExecutingAssembly())
                 .ToDictionary(tuple => tuple.@interface, tuple => CreateFactory(tuple.implementation));

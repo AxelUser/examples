@@ -2,7 +2,7 @@
 
 namespace DictionaryOfTypes.GenericsCache
 {
-    public partial class GenericsClientsAbstractFactory
+    public partial class GenericClientFactoryProvider
     {
         private class CachedFactory<T> where T : class
         { 
