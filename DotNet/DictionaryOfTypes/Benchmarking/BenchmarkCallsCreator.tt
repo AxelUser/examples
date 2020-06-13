@@ -17,7 +17,7 @@ namespace DictionaryOfTypes.Benchmarking
     for(var current = 0; current < count; current++)
     {
 #>
-                () => abstractFactory.AllowedFactoryOf<IChatRoom<#=current#>Client>(),
+                () => abstractFactory.AllowedFactoryOf<IResource<#=current#>Client>(),
 <#
     }
 #>

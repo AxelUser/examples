@@ -8,16 +8,16 @@ Intel Core i7-8700 CPU 3.20GHz (Coffee Lake), 1 CPU, 12 logical and 6 physical c
 
 
 ```
-|                                  Method | Accesses |           Mean |         Error |        StdDev | Ratio |      Gen 0 | Gen 1 | Gen 2 |   Allocated |
-|---------------------------------------- |--------- |---------------:|--------------:|--------------:|------:|-----------:|------:|------:|------------:|
-|          **SimpleFactory_SequentialAccess** |      **100** |       **3.569 μs** |     **0.0122 μs** |     **0.0108 μs** |  **1.00** |     **0.3815** |     **-** |     **-** |      **2400 B** |
-|          CachedFactory_SequentialAccess |      100 |       3.177 μs |     0.0214 μs |     0.0190 μs |  0.89 |          - |     - |     - |           - |
-| CompiledGenericFactory_SequentialAccess |      100 |       1.375 μs |     0.0015 μs |     0.0013 μs |  0.39 |          - |     - |     - |           - |
-|                                         |          |                |               |               |       |            |       |       |             |
-|          **SimpleFactory_SequentialAccess** |     **1000** |      **35.872 μs** |     **0.2581 μs** |     **0.2288 μs** |  **1.00** |     **3.7842** |     **-** |     **-** |     **24000 B** |
-|          CachedFactory_SequentialAccess |     1000 |      31.518 μs |     0.2336 μs |     0.2185 μs |  0.88 |          - |     - |     - |           - |
-| CompiledGenericFactory_SequentialAccess |     1000 |      13.658 μs |     0.0283 μs |     0.0251 μs |  0.38 |          - |     - |     - |           - |
-|                                         |          |                |               |               |       |            |       |       |             |
-|          **SimpleFactory_SequentialAccess** | **10000000** | **360,600.713 μs** | **2,037.5719 μs** | **1,905.9460 μs** |  **1.00** | **38000.0000** |     **-** |     **-** | **240000000 B** |
-|          CachedFactory_SequentialAccess | 10000000 | 305,781.587 μs | 2,950.7599 μs | 2,760.1426 μs |  0.85 |          - |     - |     - |           - |
-| CompiledGenericFactory_SequentialAccess | 10000000 | 136,261.988 μs |   127.8780 μs |   106.7839 μs |  0.38 |          - |     - |     - |       334 B |
+|                                  Method | Accesses |           Mean |         Error |        StdDev | Ratio | RatioSD |      Gen 0 | Gen 1 | Gen 2 |   Allocated |
+|---------------------------------------- |--------- |---------------:|--------------:|--------------:|------:|--------:|-----------:|------:|------:|------------:|
+|          **SimpleFactory_SequentialAccess** |      **100** |       **3.656 μs** |     **0.0703 μs** |     **0.0810 μs** |  **1.00** |    **0.00** |     **0.3815** |     **-** |     **-** |      **2400 B** |
+|          CachedFactory_SequentialAccess |      100 |       3.161 μs |     0.0160 μs |     0.0149 μs |  0.87 |    0.02 |          - |     - |     - |           - |
+| CompiledGenericFactory_SequentialAccess |      100 |       1.369 μs |     0.0027 μs |     0.0025 μs |  0.38 |    0.01 |          - |     - |     - |           - |
+|                                         |          |                |               |               |       |         |            |       |       |             |
+|          **SimpleFactory_SequentialAccess** |     **1000** |      **36.652 μs** |     **0.7192 μs** |     **0.7695 μs** |  **1.00** |    **0.00** |     **3.7842** |     **-** |     **-** |     **24000 B** |
+|          CachedFactory_SequentialAccess |     1000 |      31.170 μs |     0.1677 μs |     0.1569 μs |  0.85 |    0.02 |          - |     - |     - |           - |
+| CompiledGenericFactory_SequentialAccess |     1000 |      13.572 μs |     0.0092 μs |     0.0086 μs |  0.37 |    0.01 |          - |     - |     - |           - |
+|                                         |          |                |               |               |       |         |            |       |       |             |
+|          **SimpleFactory_SequentialAccess** | **10000000** | **354,869.333 μs** |   **563.3256 μs** |   **439.8076 μs** |  **1.00** |    **0.00** | **38000.0000** |     **-** |     **-** | **240000000 B** |
+|          CachedFactory_SequentialAccess | 10000000 | 306,629.347 μs | 2,434.7538 μs | 2,277.4702 μs |  0.86 |    0.01 |          - |     - |     - |      1808 B |
+| CompiledGenericFactory_SequentialAccess | 10000000 | 135,815.296 μs |   190.7716 μs |   169.1140 μs |  0.38 |    0.00 |          - |     - |     - |       306 B |

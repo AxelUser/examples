@@ -1,45 +1,52 @@
 ﻿<#@ template language="C#" #>
 <#const int typesCount = 20; #>
 using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DictionaryOfTypes.Clients
 {
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-    public sealed class ChatRoomClientAttribute : Attribute
+    public sealed class RestClientAttribute : Attribute
     {
     }
 
 <#
   for (var i = 0; i < typesCount; i++)
   {
-      var currentRoomPrefix = $"ChatRoom{i}";
+      var resourceName = $"Resource{i}";
       #>
-    public class <#=currentRoomPrefix#>Message
+    public class <#=resourceName#>
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface I<#=currentRoomPrefix#>Client
+    public interface I<#=resourceName#>Client
     {
-        Task SendAsync(<#=currentRoomPrefix#>Message message);
+        Task<IReadOnlyCollection<<#=resourceName#>>> GetAllAsync(CancellationToken cancellationToken);
+        Task<<#=resourceName#>> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<<#=resourceName#>> AddAsync(<#=resourceName#> resource, CancellationToken cancellationToken);
+        Task<<#=resourceName#>> UpdateAsync(<#=resourceName#> resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class <#=currentRoomPrefix#>Client: I<#=currentRoomPrefix#>Client
+    [RestClientAttribute]
+    public class <#=resourceName#>Client: I<#=resourceName#>Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public <#=currentRoomPrefix#>Client(Guid sender)
+        public <#=resourceName#>Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(<#=currentRoomPrefix#>Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<<#=resourceName#>>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<<#=resourceName#>>>(Array.Empty<<#=resourceName#>>());
+        public Task<<#=resourceName#>> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new <#=resourceName#>());
+        public Task<<#=resourceName#>> AddAsync(<#=resourceName#> resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<<#=resourceName#>> UpdateAsync(<#=resourceName#> resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
 <#}#>

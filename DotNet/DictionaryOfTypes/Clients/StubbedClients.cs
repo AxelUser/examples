@@ -1,551 +1,634 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DictionaryOfTypes.Clients
 {
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-    public sealed class ChatRoomClientAttribute : Attribute
+    public sealed class RestClientAttribute : Attribute
     {
     }
 
-    public class ChatRoom0Message
+    public class Resource0
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom0Client
+    public interface IResource0Client
     {
-        Task SendAsync(ChatRoom0Message message);
+        Task<IReadOnlyCollection<Resource0>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource0> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource0> AddAsync(Resource0 resource, CancellationToken cancellationToken);
+        Task<Resource0> UpdateAsync(Resource0 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom0Client: IChatRoom0Client
+    [RestClientAttribute]
+    public class Resource0Client: IResource0Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom0Client(Guid sender)
+        public Resource0Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom0Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource0>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource0>>(Array.Empty<Resource0>());
+        public Task<Resource0> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource0());
+        public Task<Resource0> AddAsync(Resource0 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource0> UpdateAsync(Resource0 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom1Message
+    public class Resource1
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom1Client
+    public interface IResource1Client
     {
-        Task SendAsync(ChatRoom1Message message);
+        Task<IReadOnlyCollection<Resource1>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource1> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource1> AddAsync(Resource1 resource, CancellationToken cancellationToken);
+        Task<Resource1> UpdateAsync(Resource1 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom1Client: IChatRoom1Client
+    [RestClientAttribute]
+    public class Resource1Client: IResource1Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom1Client(Guid sender)
+        public Resource1Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom1Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource1>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource1>>(Array.Empty<Resource1>());
+        public Task<Resource1> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource1());
+        public Task<Resource1> AddAsync(Resource1 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource1> UpdateAsync(Resource1 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom2Message
+    public class Resource2
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom2Client
+    public interface IResource2Client
     {
-        Task SendAsync(ChatRoom2Message message);
+        Task<IReadOnlyCollection<Resource2>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource2> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource2> AddAsync(Resource2 resource, CancellationToken cancellationToken);
+        Task<Resource2> UpdateAsync(Resource2 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom2Client: IChatRoom2Client
+    [RestClientAttribute]
+    public class Resource2Client: IResource2Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom2Client(Guid sender)
+        public Resource2Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom2Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource2>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource2>>(Array.Empty<Resource2>());
+        public Task<Resource2> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource2());
+        public Task<Resource2> AddAsync(Resource2 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource2> UpdateAsync(Resource2 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom3Message
+    public class Resource3
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom3Client
+    public interface IResource3Client
     {
-        Task SendAsync(ChatRoom3Message message);
+        Task<IReadOnlyCollection<Resource3>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource3> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource3> AddAsync(Resource3 resource, CancellationToken cancellationToken);
+        Task<Resource3> UpdateAsync(Resource3 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom3Client: IChatRoom3Client
+    [RestClientAttribute]
+    public class Resource3Client: IResource3Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom3Client(Guid sender)
+        public Resource3Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom3Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource3>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource3>>(Array.Empty<Resource3>());
+        public Task<Resource3> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource3());
+        public Task<Resource3> AddAsync(Resource3 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource3> UpdateAsync(Resource3 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom4Message
+    public class Resource4
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom4Client
+    public interface IResource4Client
     {
-        Task SendAsync(ChatRoom4Message message);
+        Task<IReadOnlyCollection<Resource4>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource4> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource4> AddAsync(Resource4 resource, CancellationToken cancellationToken);
+        Task<Resource4> UpdateAsync(Resource4 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom4Client: IChatRoom4Client
+    [RestClientAttribute]
+    public class Resource4Client: IResource4Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom4Client(Guid sender)
+        public Resource4Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom4Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource4>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource4>>(Array.Empty<Resource4>());
+        public Task<Resource4> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource4());
+        public Task<Resource4> AddAsync(Resource4 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource4> UpdateAsync(Resource4 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom5Message
+    public class Resource5
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom5Client
+    public interface IResource5Client
     {
-        Task SendAsync(ChatRoom5Message message);
+        Task<IReadOnlyCollection<Resource5>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource5> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource5> AddAsync(Resource5 resource, CancellationToken cancellationToken);
+        Task<Resource5> UpdateAsync(Resource5 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom5Client: IChatRoom5Client
+    [RestClientAttribute]
+    public class Resource5Client: IResource5Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom5Client(Guid sender)
+        public Resource5Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom5Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource5>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource5>>(Array.Empty<Resource5>());
+        public Task<Resource5> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource5());
+        public Task<Resource5> AddAsync(Resource5 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource5> UpdateAsync(Resource5 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom6Message
+    public class Resource6
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom6Client
+    public interface IResource6Client
     {
-        Task SendAsync(ChatRoom6Message message);
+        Task<IReadOnlyCollection<Resource6>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource6> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource6> AddAsync(Resource6 resource, CancellationToken cancellationToken);
+        Task<Resource6> UpdateAsync(Resource6 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom6Client: IChatRoom6Client
+    [RestClientAttribute]
+    public class Resource6Client: IResource6Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom6Client(Guid sender)
+        public Resource6Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom6Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource6>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource6>>(Array.Empty<Resource6>());
+        public Task<Resource6> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource6());
+        public Task<Resource6> AddAsync(Resource6 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource6> UpdateAsync(Resource6 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom7Message
+    public class Resource7
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom7Client
+    public interface IResource7Client
     {
-        Task SendAsync(ChatRoom7Message message);
+        Task<IReadOnlyCollection<Resource7>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource7> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource7> AddAsync(Resource7 resource, CancellationToken cancellationToken);
+        Task<Resource7> UpdateAsync(Resource7 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom7Client: IChatRoom7Client
+    [RestClientAttribute]
+    public class Resource7Client: IResource7Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom7Client(Guid sender)
+        public Resource7Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom7Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource7>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource7>>(Array.Empty<Resource7>());
+        public Task<Resource7> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource7());
+        public Task<Resource7> AddAsync(Resource7 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource7> UpdateAsync(Resource7 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom8Message
+    public class Resource8
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom8Client
+    public interface IResource8Client
     {
-        Task SendAsync(ChatRoom8Message message);
+        Task<IReadOnlyCollection<Resource8>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource8> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource8> AddAsync(Resource8 resource, CancellationToken cancellationToken);
+        Task<Resource8> UpdateAsync(Resource8 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom8Client: IChatRoom8Client
+    [RestClientAttribute]
+    public class Resource8Client: IResource8Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom8Client(Guid sender)
+        public Resource8Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom8Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource8>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource8>>(Array.Empty<Resource8>());
+        public Task<Resource8> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource8());
+        public Task<Resource8> AddAsync(Resource8 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource8> UpdateAsync(Resource8 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom9Message
+    public class Resource9
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom9Client
+    public interface IResource9Client
     {
-        Task SendAsync(ChatRoom9Message message);
+        Task<IReadOnlyCollection<Resource9>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource9> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource9> AddAsync(Resource9 resource, CancellationToken cancellationToken);
+        Task<Resource9> UpdateAsync(Resource9 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom9Client: IChatRoom9Client
+    [RestClientAttribute]
+    public class Resource9Client: IResource9Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom9Client(Guid sender)
+        public Resource9Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom9Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource9>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource9>>(Array.Empty<Resource9>());
+        public Task<Resource9> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource9());
+        public Task<Resource9> AddAsync(Resource9 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource9> UpdateAsync(Resource9 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom10Message
+    public class Resource10
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom10Client
+    public interface IResource10Client
     {
-        Task SendAsync(ChatRoom10Message message);
+        Task<IReadOnlyCollection<Resource10>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource10> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource10> AddAsync(Resource10 resource, CancellationToken cancellationToken);
+        Task<Resource10> UpdateAsync(Resource10 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom10Client: IChatRoom10Client
+    [RestClientAttribute]
+    public class Resource10Client: IResource10Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom10Client(Guid sender)
+        public Resource10Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom10Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource10>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource10>>(Array.Empty<Resource10>());
+        public Task<Resource10> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource10());
+        public Task<Resource10> AddAsync(Resource10 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource10> UpdateAsync(Resource10 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom11Message
+    public class Resource11
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom11Client
+    public interface IResource11Client
     {
-        Task SendAsync(ChatRoom11Message message);
+        Task<IReadOnlyCollection<Resource11>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource11> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource11> AddAsync(Resource11 resource, CancellationToken cancellationToken);
+        Task<Resource11> UpdateAsync(Resource11 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom11Client: IChatRoom11Client
+    [RestClientAttribute]
+    public class Resource11Client: IResource11Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom11Client(Guid sender)
+        public Resource11Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom11Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource11>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource11>>(Array.Empty<Resource11>());
+        public Task<Resource11> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource11());
+        public Task<Resource11> AddAsync(Resource11 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource11> UpdateAsync(Resource11 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom12Message
+    public class Resource12
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom12Client
+    public interface IResource12Client
     {
-        Task SendAsync(ChatRoom12Message message);
+        Task<IReadOnlyCollection<Resource12>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource12> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource12> AddAsync(Resource12 resource, CancellationToken cancellationToken);
+        Task<Resource12> UpdateAsync(Resource12 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom12Client: IChatRoom12Client
+    [RestClientAttribute]
+    public class Resource12Client: IResource12Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom12Client(Guid sender)
+        public Resource12Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom12Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource12>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource12>>(Array.Empty<Resource12>());
+        public Task<Resource12> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource12());
+        public Task<Resource12> AddAsync(Resource12 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource12> UpdateAsync(Resource12 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom13Message
+    public class Resource13
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom13Client
+    public interface IResource13Client
     {
-        Task SendAsync(ChatRoom13Message message);
+        Task<IReadOnlyCollection<Resource13>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource13> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource13> AddAsync(Resource13 resource, CancellationToken cancellationToken);
+        Task<Resource13> UpdateAsync(Resource13 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom13Client: IChatRoom13Client
+    [RestClientAttribute]
+    public class Resource13Client: IResource13Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom13Client(Guid sender)
+        public Resource13Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom13Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource13>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource13>>(Array.Empty<Resource13>());
+        public Task<Resource13> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource13());
+        public Task<Resource13> AddAsync(Resource13 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource13> UpdateAsync(Resource13 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom14Message
+    public class Resource14
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom14Client
+    public interface IResource14Client
     {
-        Task SendAsync(ChatRoom14Message message);
+        Task<IReadOnlyCollection<Resource14>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource14> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource14> AddAsync(Resource14 resource, CancellationToken cancellationToken);
+        Task<Resource14> UpdateAsync(Resource14 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom14Client: IChatRoom14Client
+    [RestClientAttribute]
+    public class Resource14Client: IResource14Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom14Client(Guid sender)
+        public Resource14Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom14Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource14>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource14>>(Array.Empty<Resource14>());
+        public Task<Resource14> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource14());
+        public Task<Resource14> AddAsync(Resource14 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource14> UpdateAsync(Resource14 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom15Message
+    public class Resource15
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom15Client
+    public interface IResource15Client
     {
-        Task SendAsync(ChatRoom15Message message);
+        Task<IReadOnlyCollection<Resource15>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource15> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource15> AddAsync(Resource15 resource, CancellationToken cancellationToken);
+        Task<Resource15> UpdateAsync(Resource15 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom15Client: IChatRoom15Client
+    [RestClientAttribute]
+    public class Resource15Client: IResource15Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom15Client(Guid sender)
+        public Resource15Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom15Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource15>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource15>>(Array.Empty<Resource15>());
+        public Task<Resource15> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource15());
+        public Task<Resource15> AddAsync(Resource15 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource15> UpdateAsync(Resource15 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom16Message
+    public class Resource16
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom16Client
+    public interface IResource16Client
     {
-        Task SendAsync(ChatRoom16Message message);
+        Task<IReadOnlyCollection<Resource16>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource16> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource16> AddAsync(Resource16 resource, CancellationToken cancellationToken);
+        Task<Resource16> UpdateAsync(Resource16 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom16Client: IChatRoom16Client
+    [RestClientAttribute]
+    public class Resource16Client: IResource16Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom16Client(Guid sender)
+        public Resource16Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom16Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource16>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource16>>(Array.Empty<Resource16>());
+        public Task<Resource16> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource16());
+        public Task<Resource16> AddAsync(Resource16 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource16> UpdateAsync(Resource16 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom17Message
+    public class Resource17
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom17Client
+    public interface IResource17Client
     {
-        Task SendAsync(ChatRoom17Message message);
+        Task<IReadOnlyCollection<Resource17>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource17> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource17> AddAsync(Resource17 resource, CancellationToken cancellationToken);
+        Task<Resource17> UpdateAsync(Resource17 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom17Client: IChatRoom17Client
+    [RestClientAttribute]
+    public class Resource17Client: IResource17Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom17Client(Guid sender)
+        public Resource17Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom17Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource17>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource17>>(Array.Empty<Resource17>());
+        public Task<Resource17> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource17());
+        public Task<Resource17> AddAsync(Resource17 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource17> UpdateAsync(Resource17 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom18Message
+    public class Resource18
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom18Client
+    public interface IResource18Client
     {
-        Task SendAsync(ChatRoom18Message message);
+        Task<IReadOnlyCollection<Resource18>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource18> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource18> AddAsync(Resource18 resource, CancellationToken cancellationToken);
+        Task<Resource18> UpdateAsync(Resource18 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom18Client: IChatRoom18Client
+    [RestClientAttribute]
+    public class Resource18Client: IResource18Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom18Client(Guid sender)
+        public Resource18Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom18Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource18>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource18>>(Array.Empty<Resource18>());
+        public Task<Resource18> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource18());
+        public Task<Resource18> AddAsync(Resource18 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource18> UpdateAsync(Resource18 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
-    public class ChatRoom19Message
+    public class Resource19
     {
         public Guid Id { get; }
-        
-        public string? Text { get; }
-        
-        public Guid To { get; }
     }
     
-    public interface IChatRoom19Client
+    public interface IResource19Client
     {
-        Task SendAsync(ChatRoom19Message message);
+        Task<IReadOnlyCollection<Resource19>> GetAllAsync(CancellationToken cancellationToken);
+        Task<Resource19> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<Resource19> AddAsync(Resource19 resource, CancellationToken cancellationToken);
+        Task<Resource19> UpdateAsync(Resource19 resource, CancellationToken cancellationToken);
+        Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    [ChatRoomClient]
-    public class ChatRoom19Client: IChatRoom19Client
+    [RestClientAttribute]
+    public class Resource19Client: IResource19Client
     {
-        private Guid _sender;
+        private readonly HttpClient _client;
 
-        public ChatRoom19Client(Guid sender)
+        public Resource19Client(HttpClient client)
         {
-            _sender = sender;
+            _client = client;
         }
         
-        public Task SendAsync(ChatRoom19Message message) => Task.CompletedTask;
+        public Task<IReadOnlyCollection<Resource19>> GetAllAsync(CancellationToken cancellationToken) => Task.FromResult<IReadOnlyCollection<Resource19>>(Array.Empty<Resource19>());
+        public Task<Resource19> GetAsync(Guid id, CancellationToken cancellationToken) => Task.FromResult(new Resource19());
+        public Task<Resource19> AddAsync(Resource19 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task<Resource19> UpdateAsync(Resource19 resource, CancellationToken cancellationToken) => Task.FromResult(resource);
+        public Task DeleteAsync(Guid id, CancellationToken cancellationToken) => Task.CompletedTask;
     }
 
 }

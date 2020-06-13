@@ -11,7 +11,7 @@ namespace DictionaryOfTypes.Clients
         {
             var clientsTypes = assembly.DefinedTypes
                 .Where(type => type.CustomAttributes
-                    .Any(attr => attr.AttributeType == typeof(ChatRoomClientAttribute)));
+                    .Any(attr => attr.AttributeType == typeof(RestClientAttribute)));
             
             foreach (var clientType in clientsTypes)
             {
