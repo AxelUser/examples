@@ -4,13 +4,13 @@ using System.Linq;
 using System.Reflection;
 using DictionaryOfTypes.Clients;
 
-namespace DictionaryOfTypes.GenericsTrick
+namespace DictionaryOfTypes.GenericsCache
 {
     public partial class GenericsClientsAbstractFactory : IClientsAbstractFactory
     {
         private static readonly Dictionary<Type, Type> DiscoveredAllowedClientTypes;
 
-        public IClientFactory<T> AllowedFactoryOf<T>() where T : class
+        public IClientFactory<T> GetClientFactory<T>() where T : class
         {
             return CachedFactory<T>.Instance ?? throw new Exception($"Client type '{typeof(T)}' isn't supported");
         }

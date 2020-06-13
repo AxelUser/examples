@@ -5,20 +5,20 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using DictionaryOfTypes.Clients;
 
-namespace DictionaryOfTypes.CacheFactoriesInDictionary
+namespace DictionaryOfTypes.DictionaryCache
 {
-    public class CachedSimpleFactory: IClientsAbstractFactory
+    public class CachedSimpleAbstractFactory: IClientsAbstractFactory
     {
         private static readonly Type FactoryType = typeof(ClientFactory<>);
         private static readonly Dictionary<Type, object> CachedClientFactories;
         
-        static CachedSimpleFactory()
+        static CachedSimpleAbstractFactory()
         {
             CachedClientFactories = ClientTypesProvider.GetAllTypes(Assembly.GetExecutingAssembly())
                 .ToDictionary(tuple => tuple.@interface, tuple => CreateFactory(tuple.implementation));
         }
 
-        public IClientFactory<T> AllowedFactoryOf<T>() where T : class
+        public IClientFactory<T> GetClientFactory<T>() where T : class
         {
             if(!CachedClientFactories.TryGetValue(typeof(T), out var factory))
                 throw new Exception($"Client type '{typeof(T)}' isn't supported");

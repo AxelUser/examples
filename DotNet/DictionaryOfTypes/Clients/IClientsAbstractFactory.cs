@@ -2,6 +2,6 @@
 {
     public interface IClientsAbstractFactory
     {
-        IClientFactory<T> AllowedFactoryOf<T>() where T : class;
+        IClientFactory<T> GetClientFactory<T>() where T : class;
     }
 }

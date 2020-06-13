@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
-using DictionaryOfTypes.CacheFactoriesInDictionary;
-using DictionaryOfTypes.GenericsTrick;
-using DictionaryOfTypes.SimpleDictionary;
+using DictionaryOfTypes.DictionaryCache;
+using DictionaryOfTypes.GenericsCache;
+using DictionaryOfTypes.Simple;
 
 namespace DictionaryOfTypes.Benchmarking
 {
@@ -23,7 +23,7 @@ namespace DictionaryOfTypes.Benchmarking
         public void SetUp()
         {
             _simpleFactoryRunActions = BenchmarkCallsCreator.CreateInvocations(new SimpleClientFactory());
-            _cachedFactoryRunActions = BenchmarkCallsCreator.CreateInvocations(new CachedSimpleFactory());
+            _cachedFactoryRunActions = BenchmarkCallsCreator.CreateInvocations(new CachedSimpleAbstractFactory());
             _compiledGenericsFactoryRunActions = BenchmarkCallsCreator.CreateInvocations(new GenericsClientsAbstractFactory());
         }
 

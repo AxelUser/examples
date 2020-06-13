@@ -1,6 +1,6 @@
 ﻿using DictionaryOfTypes.Clients;
 
-namespace DictionaryOfTypes.GenericsTrick
+namespace DictionaryOfTypes.GenericsCache
 {
     public partial class GenericsClientsAbstractFactory
     {

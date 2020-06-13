@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using DictionaryOfTypes.Clients;
 
-namespace DictionaryOfTypes.SimpleDictionary
+namespace DictionaryOfTypes.Simple
 {
     public class SimpleClientFactory: IClientsAbstractFactory
     {
@@ -16,7 +16,7 @@ namespace DictionaryOfTypes.SimpleDictionary
                 .ToDictionary(tuple => tuple.@interface, tuple => tuple.implementation);
         }
 
-        public IClientFactory<T> AllowedFactoryOf<T>() where T : class
+        public IClientFactory<T> GetClientFactory<T>() where T : class
         {
             if(!DiscoveredAllowedClientTypes.TryGetValue(typeof(T), out var implType))
                 throw new Exception($"Client type '{typeof(T)}' isn't supported");
