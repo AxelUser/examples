@@ -1,9 +1,9 @@
-﻿using System;
+﻿using System.Net.Http;
 
 namespace DictionaryOfTypes.Clients
 {
     public interface IClientFactory<out T> where T: class
     {
-        T Create(Guid from);
+        T Create(HttpClient client);
     }
 }

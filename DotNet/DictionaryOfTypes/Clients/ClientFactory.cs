@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 
 namespace DictionaryOfTypes.Clients
 {
@@ -11,9 +12,9 @@ namespace DictionaryOfTypes.Clients
             _clientImplType = clientImplType;
         }
         
-        public T Create(Guid from)
+        public T Create(HttpClient client)
         {
-            return (T) Activator.CreateInstance(_clientImplType, from)!;
+            return (T) Activator.CreateInstance(_clientImplType, client)!;
         }
     }
 }
