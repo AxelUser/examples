@@ -14,6 +14,7 @@ namespace DictionaryOfTypes.GenericsCache
         {
             DiscoveredAllowedClientTypes = ClientTypesProvider.GetAllTypes(Assembly.GetExecutingAssembly())
                 .ToDictionary(tuple => tuple.@interface, tuple => tuple.implementation);
+            
             InitializeFactories();
         }
         
